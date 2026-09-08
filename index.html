@@ -43,6 +43,107 @@ footer{border-top:1px solid var(--line);max-width:var(--max);margin:auto;padding
 .tiktok-icon{display:inline-flex!important;align-items:center;justify-content:center;width:44px;height:44px;padding:0!important;border-radius:50%}
 .tiktok-icon svg{width:22px;height:22px;fill:currentColor;display:block}
 
+
+/* V12 — premium eBay purchase CTA. Scoped only to purchase links. */
+a[title="Acquista su eBay"]{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:48px;
+  padding:11px 58px 11px 52px !important;
+  border:1px solid rgba(53,184,255,.62);
+  border-radius:999px;
+  background:
+    linear-gradient(115deg,rgba(10,24,38,.98),rgba(5,12,22,.98) 58%,rgba(8,20,34,.98));
+  color:#f5f8fb !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    inset 0 -12px 28px rgba(0,0,0,.24),
+    0 0 0 1px rgba(22,115,170,.10),
+    0 8px 24px rgba(0,0,0,.24);
+  text-decoration:none;
+  letter-spacing:.01em;
+  transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease, background .25s ease;
+}
+a[title="Acquista su eBay"]::before{
+  content:"";
+  position:absolute;
+  left:18px;
+  top:50%;
+  width:22px;
+  height:22px;
+  transform:translateY(-50%);
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:22px 22px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f7fbff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 1.9-1.4L21 8H6.2'/%3E%3Ccircle cx='9.2' cy='19' r='1.3' fill='%2335b8ff' stroke='none'/%3E%3Ccircle cx='18' cy='19' r='1.3' fill='%2335b8ff' stroke='none'/%3E%3C/svg%3E");
+  opacity:.96;
+}
+a[title="Acquista su eBay"]::after{
+  content:"";
+  position:absolute;
+  left:-35%;
+  top:-80%;
+  width:28%;
+  height:260%;
+  transform:rotate(18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
+  transition:left .55s ease;
+  pointer-events:none;
+}
+a[title="Acquista su eBay"] .ebay-word{
+  color:#35b8ff;
+  font-weight:800;
+  letter-spacing:-.02em;
+  text-shadow:0 0 18px rgba(53,184,255,.18);
+}
+a[title="Acquista su eBay"] .buy-arrow{
+  position:absolute;
+  right:8px;
+  top:50%;
+  width:32px;
+  height:32px;
+  min-width:32px;
+  margin:0;
+  transform:translateY(-50%);
+  border:1px solid rgba(53,184,255,.72);
+  border-radius:50%;
+  background:linear-gradient(145deg,rgba(15,47,68,.92),rgba(6,18,29,.98));
+  color:#fff;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 18px rgba(53,184,255,.12);
+  font-size:17px;
+  transition:transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+a[title="Acquista su eBay"]:hover{
+  transform:translateY(-2px);
+  border-color:rgba(53,184,255,.95);
+  background:linear-gradient(115deg,rgba(11,31,48,.98),rgba(5,14,24,.98) 60%,rgba(8,27,44,.98));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.10),
+    0 0 0 1px rgba(53,184,255,.10),
+    0 10px 32px rgba(0,0,0,.30),
+    0 0 28px rgba(53,184,255,.13);
+}
+a[title="Acquista su eBay"]:hover::after{left:120%}
+a[title="Acquista su eBay"]:hover .buy-arrow{
+  transform:translate(2px,-50%);
+  border-color:#35b8ff;
+  background:linear-gradient(145deg,#0f5d83,#08283c);
+  box-shadow:0 0 22px rgba(53,184,255,.25);
+}
+a[title="Acquista su eBay"]:focus-visible{
+  outline:2px solid #35b8ff;
+  outline-offset:3px;
+}
+@media(max-width:850px){
+  a[title="Acquista su eBay"]{min-height:46px;padding-left:49px !important;padding-right:55px !important}
+  a[title="Acquista su eBay"]::before{left:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  a[title="Acquista su eBay"],a[title="Acquista su eBay"] .buy-arrow{transition:none!important}
+  a[title="Acquista su eBay"]::after{display:none}
+}
+
 </style>
 <style>
 .product-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
@@ -117,7 +218,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 <strong>Soundcore Q20i.<br/>Il colpo giusto sotto i 50€.</strong>
 <p>Cuffie over-ear con ANC ibrido, 40 ore con ANC e 60 ore in modalità normale. Un prodotto sorprendente per la sua fascia di prezzo.</p>
 </div>
-<div class="signal"><span></span><span></span><span></span><span></span><b>ANALISI ATTIVA</b></div><a class="button button-primary" href="https://www.ebay.it/itm/158053391891?mkcid=1&amp;mkrid=724-53478-19255-0&amp;siteid=101&amp;campid=5339205052&amp;customid=dacopiareIDA3004Z11&amp;toolid=10001&amp;mkevt=1" rel="nofollow sponsored noopener" style="margin-top:18px;width:100%;justify-content:center;" target="_blank" title="Acquista su eBay">Compra su eBay <span aria-hidden="true" class="buy-arrow">↗</span></a>
+<div class="signal"><span></span><span></span><span></span><span></span><b>ANALISI ATTIVA</b></div><a class="button button-primary" href="https://www.ebay.it/itm/158053391891?mkcid=1&amp;mkrid=724-53478-19255-0&amp;siteid=101&amp;campid=5339205052&amp;customid=dacopiareIDA3004Z11&amp;toolid=10001&amp;mkevt=1" rel="nofollow sponsored noopener" style="margin-top:18px;width:100%;justify-content:center;" target="_blank" title="Acquista su eBay">Compra su <span class="ebay-word">eBay</span> <span aria-hidden="true" class="buy-arrow">↗</span></a>
 </div>
 </section>
 <section aria-label="Principi GENKTRON" class="ticker">
@@ -138,7 +239,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 <span class="tag">IN EVIDENZA · QUALITÀ/PREZZO</span>
 <h3>Bosch EasyDrill 1200.</h3>
 <p>Trapano avvitatore 12V compatto e versatile, con 2 velocità, 20+1 impostazioni di coppia e fino a 30 Nm. Pensato per piccoli lavori, montaggio e fai da te quotidiano.</p>
-<div class="product-bottom"><strong><a href="https://www.ebay.it/sch/i.html?_nkw=Bosch+EasyDrill+1200&amp;mkcid=1&amp;mkrid=724-53478-19255-0&amp;siteid=101&amp;campid=5339205052&amp;customid=faidatebosch&amp;toolid=10001&amp;mkevt=1" rel="nofollow sponsored noopener" target="_blank" title="Acquista su eBay">Compra su eBay</a></strong><span aria-hidden="true" class="buy-arrow">↗</span></div>
+<div class="product-bottom"><strong><a href="https://www.ebay.it/sch/i.html?_nkw=Bosch+EasyDrill+1200&amp;mkcid=1&amp;mkrid=724-53478-19255-0&amp;siteid=101&amp;campid=5339205052&amp;customid=faidatebosch&amp;toolid=10001&amp;mkevt=1" rel="nofollow sponsored noopener" target="_blank" title="Acquista su eBay">Compra su <span class="ebay-word">eBay</span></a></strong><span aria-hidden="true" class="buy-arrow">↗</span></div>
 </div>
 </article>
 <article aria-label="Anker Power Bank 20K 30W." class="product-card">
@@ -147,7 +248,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 <span class="tag">TECH</span>
 <h3>Anker Power Bank 20K 30W.</h3>
 <p>Power bank da 20.000 mAh con ricarica fino a 30W, 2 porte USB-C e 1 USB-A. Un compagno pratico per smartphone, tablet e altri dispositivi durante viaggi e giornate fuori casa.</p>
-<div class="product-bottom"><strong><a href="https://www.ebay.it/sch/i.html?_nkw=Anker+Power+Bank+20000mAh+30W&amp;mkcid=1&amp;mkrid=724-53478-19255-0&amp;siteid=101&amp;campid=5339205052&amp;customid=techpowerbank&amp;toolid=10001&amp;mkevt=1" rel="nofollow sponsored noopener" target="_blank" title="Acquista su eBay">Compra su eBay</a></strong><span aria-hidden="true" class="buy-arrow">↗</span></div>
+<div class="product-bottom"><strong><a href="https://www.ebay.it/sch/i.html?_nkw=Anker+Power+Bank+20000mAh+30W&amp;mkcid=1&amp;mkrid=724-53478-19255-0&amp;siteid=101&amp;campid=5339205052&amp;customid=techpowerbank&amp;toolid=10001&amp;mkevt=1" rel="nofollow sponsored noopener" target="_blank" title="Acquista su eBay">Compra su <span class="ebay-word">eBay</span></a></strong><span aria-hidden="true" class="buy-arrow">↗</span></div>
 </div>
 </article>
 <article aria-label="TP-Link Tapo P110." class="product-card">
@@ -156,7 +257,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 <span class="tag">CASA</span>
 <h3>TP-Link Tapo P110.</h3>
 <p>Presa smart Wi-Fi compatta con controllo da remoto, timer, programmazione e monitoraggio dei consumi in tempo reale. Funziona senza hub ed è compatibile con Alexa e Google Assistant.</p>
-<div class="product-bottom"><strong><a href="https://www.ebay.it/sch/i.html?_nkw=TP-Link+Tapo+P110&amp;mkcid=1&amp;mkrid=724-53478-19255-0&amp;siteid=101&amp;campid=5339205052&amp;customid=casatapo&amp;toolid=10001&amp;mkevt=1" rel="nofollow sponsored noopener" target="_blank" title="Acquista su eBay">Compra su eBay</a></strong><span aria-hidden="true" class="buy-arrow">↗</span></div>
+<div class="product-bottom"><strong><a href="https://www.ebay.it/sch/i.html?_nkw=TP-Link+Tapo+P110&amp;mkcid=1&amp;mkrid=724-53478-19255-0&amp;siteid=101&amp;campid=5339205052&amp;customid=casatapo&amp;toolid=10001&amp;mkevt=1" rel="nofollow sponsored noopener" target="_blank" title="Acquista su eBay">Compra su <span class="ebay-word">eBay</span></a></strong><span aria-hidden="true" class="buy-arrow">↗</span></div>
 </div>
 </article>
 <article aria-label="Logitech G435 LIGHTSPEED." class="product-card">
@@ -165,7 +266,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 <span class="tag">GAMING</span>
 <h3>Logitech G435 LIGHTSPEED.</h3>
 <p>Cuffie gaming wireless da soli 165 g, con LIGHTSPEED e Bluetooth, microfoni beamforming e fino a 18 ore di autonomia. Una soluzione leggera per PC, Mac e PlayStation.</p>
-<div class="product-bottom"><strong><a href="https://www.ebay.it/sch/i.html?_nkw=Logitech+G435+LIGHTSPEED&amp;mkcid=1&amp;mkrid=724-53478-19255-0&amp;siteid=101&amp;campid=5339205052&amp;customid=gamingg435&amp;toolid=10001&amp;mkevt=1" rel="nofollow sponsored noopener" target="_blank" title="Acquista su eBay">Compra su eBay</a></strong><span aria-hidden="true" class="buy-arrow">↗</span></div>
+<div class="product-bottom"><strong><a href="https://www.ebay.it/sch/i.html?_nkw=Logitech+G435+LIGHTSPEED&amp;mkcid=1&amp;mkrid=724-53478-19255-0&amp;siteid=101&amp;campid=5339205052&amp;customid=gamingg435&amp;toolid=10001&amp;mkevt=1" rel="nofollow sponsored noopener" target="_blank" title="Acquista su eBay">Compra su <span class="ebay-word">eBay</span></a></strong><span aria-hidden="true" class="buy-arrow">↗</span></div>
 </div>
 </article>
 <article aria-label="PETKIT Eversweet Solo 2." class="product-card">
@@ -174,7 +275,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 <span class="tag">ANIMALI</span>
 <h3>PETKIT Eversweet Solo 2.</h3>
 <p>Fontanella smart da 2L pensata per gatti e piccoli cani, con filtrazione multilivello, pompa wireless e controllo Bluetooth. Aiuta a mantenere l’acqua in movimento e più facilmente disponibile.</p>
-<div class="product-bottom"><strong><a href="https://www.ebay.it/sch/i.html?_nkw=PETKIT+Eversweet+Solo+2&amp;mkcid=1&amp;mkrid=724-53478-19255-0&amp;siteid=101&amp;campid=5339205052&amp;customid=animalipetkit&amp;toolid=10001&amp;mkevt=1" rel="nofollow sponsored noopener" target="_blank" title="Acquista su eBay">Compra su eBay</a></strong><span aria-hidden="true" class="buy-arrow">↗</span></div>
+<div class="product-bottom"><strong><a href="https://www.ebay.it/sch/i.html?_nkw=PETKIT+Eversweet+Solo+2&amp;mkcid=1&amp;mkrid=724-53478-19255-0&amp;siteid=101&amp;campid=5339205052&amp;customid=animalipetkit&amp;toolid=10001&amp;mkevt=1" rel="nofollow sponsored noopener" target="_blank" title="Acquista su eBay">Compra su <span class="ebay-word">eBay</span></a></strong><span aria-hidden="true" class="buy-arrow">↗</span></div>
 </div>
 </article>
 <article aria-label="Anker Zolo 20K." class="product-card">
@@ -191,7 +292,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 <span class="tag">GKT PICK · AUDIO</span>
 <h3>Soundcore Q20i.</h3>
 <p>Cuffie over-ear con ANC ibrido, driver da 40 mm e fino a 40 ore di autonomia con cancellazione attiva del rumore. Una proposta molto interessante nella fascia economica.</p>
-<div class="product-bottom"><strong><a href="https://www.ebay.it/itm/158053391891?mkcid=1&amp;mkrid=724-53478-19255-0&amp;siteid=101&amp;campid=5339205052&amp;customid=dacopiareIDA3004Z11&amp;toolid=10001&amp;mkevt=1" rel="nofollow sponsored noopener" target="_blank" title="Acquista su eBay">Compra su eBay</a></strong><span aria-hidden="true" class="buy-arrow">↗</span></div>
+<div class="product-bottom"><strong><a href="https://www.ebay.it/itm/158053391891?mkcid=1&amp;mkrid=724-53478-19255-0&amp;siteid=101&amp;campid=5339205052&amp;customid=dacopiareIDA3004Z11&amp;toolid=10001&amp;mkevt=1" rel="nofollow sponsored noopener" target="_blank" title="Acquista su eBay">Compra su <span class="ebay-word">eBay</span></a></strong><span aria-hidden="true" class="buy-arrow">↗</span></div>
 </div>
 </article>
 </article></div>
